@@ -14,14 +14,14 @@ class CategoryEnum(enum.Enum):
 
 class User(Base):
    __tablename__ = "user"
-   user_id = Column(Integer, primary_key=True)
+   user_id = Column(Integer, primary_key=True, autoincrement=True)
    username = Column(String, unique=True, nullable=False)
    salary = Column(Float, default=0.0)
 
 
 class Expense(Base):
    __tablename__ = "expenses"
-   expense_id = Column(Integer, primary_key=True)
+   expense_id = Column(Integer, primary_key=True, autoincrement=True)
    user_id = Column(Integer, ForeignKey("user.user_id"))
    name = Column(String, nullable=False)
    amount = Column(Float)
